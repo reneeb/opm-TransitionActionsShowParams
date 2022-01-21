@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<otobo_package version="1.0">
+    <!-- GENERATED WITH OPM::Maker::Command::sopm (1.1.0) -->
+    <Name>TransitionActionsShowParams</Name>
+    <Version>10.0.1</Version>
+    <Framework>10.0.x</Framework>
+    <Framework>10.1.x</Framework>
+    <Vendor>Perl-Services.de</Vendor>
+    <URL>https://www.perl-services.de</URL>
+    <Description Lang="de">Zeige Aktionsmodul-Parameter in Übergangsaktionen</Description>
+    <Description Lang="en">Show action module parameters in transition actions</Description>
+    <License>GNU AFFERO GENERAL PUBLIC LICENSE Version 3, November 2007</License>
+    <Filelist>
+        <File Permission="644" Location="Kernel/Config/Files/XML/TransitionActionsShowParams.xml" />
+        <File Permission="644" Location="Kernel/Modules/AdminTransitionActionsShowParams.pm" />
+        <File Permission="644" Location="Kernel/System/ProcessManagement/TransitionAction/DynamicFieldSet.pm" />
+        <File Permission="644" Location="Kernel/System/ProcessManagement/TransitionAction/TicketArticleCreate.pm" />
+        <File Permission="644" Location="Kernel/System/ProcessManagement/TransitionAction/TicketCreate.pm" />
+        <File Permission="644" Location="Kernel/System/ProcessManagement/TransitionAction/TicketCustomerSet.pm" />
+        <File Permission="644" Location="Kernel/System/ProcessManagement/TransitionAction/TicketLockSet.pm" />
+        <File Permission="644" Location="Kernel/System/ProcessManagement/TransitionAction/TicketOwnerSet.pm" />
+        <File Permission="644" Location="Kernel/System/ProcessManagement/TransitionAction/TicketQueueSet.pm" />
+        <File Permission="644" Location="Kernel/System/ProcessManagement/TransitionAction/TicketResponsibleSet.pm" />
+        <File Permission="644" Location="Kernel/System/ProcessManagement/TransitionAction/TicketSLASet.pm" />
+        <File Permission="644" Location="Kernel/System/ProcessManagement/TransitionAction/TicketServiceSet.pm" />
+        <File Permission="644" Location="Kernel/System/ProcessManagement/TransitionAction/TicketStateSet.pm" />
+        <File Permission="644" Location="Kernel/System/ProcessManagement/TransitionAction/TicketTitleSet.pm" />
+        <File Permission="644" Location="Kernel/System/ProcessManagement/TransitionAction/TicketTypeSet.pm" />
+        <File Permission="644" Location="var/httpd/htdocs/js/PS.ProcessManagement.TransitionActionParameters.js" />
+    </Filelist>
+</otobo_package>

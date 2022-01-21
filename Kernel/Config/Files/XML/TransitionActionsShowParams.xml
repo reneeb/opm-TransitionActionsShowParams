@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<otrs_config version="2.0" init="Config">
+<otobo_config version="2.0" init="Config">
     <Setting Name="Frontend::Module###AdminTransitionActionsShowParams" Required="0" Valid="1">
         <Description Translatable="1">Frontend module registration for ical infos module.</Description>
         <Navigation>Frontend::Agent::ModuleRegistration</Navigation>
@@ -33,14 +33,14 @@
             </Array>
         </Value>
     </Setting>
-    <Setting Name="Loader::Module::AdminProcessManagementTransitionAction###002-ProcessManagement" Required="0" Valid="1">
+    <Setting Name="Loader::Module::AdminProcessManagementTransitionAction###003-TransitionActionParameters" Required="0" Valid="1">
         <Description Translatable="1">Loader module registration for the agent interface.</Description>
         <Navigation>Frontend::Admin::ModuleRegistration::Loader</Navigation>
         <Value>
             <Hash>
                 <Item Key="JavaScript">
                     <Array>
-                        <Item>Core.Agent.Admin.ProcessManagementTransitionActionParameters.js</Item>
+                        <Item>PS.ProcessManagement.TransitionActionParameters.js</Item>
                     </Array>
                 </Item>
             </Hash>
@@ -56,4 +56,4 @@
             <Item ValueType="Checkbox">1</Item>
         </Value>
     </Setting>
-</otrs_config>
+</otobo_config>

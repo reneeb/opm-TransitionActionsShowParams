@@ -8,12 +8,10 @@
 
 "use strict";
 
-var Core = Core || {};
-Core.Agent = Core.Agent || {};
-Core.Agent.Admin = Core.Agent.Admin || {};
-Core.Agent.Admin.ProcessManagement = Core.Agent.Admin.ProcessManagement || {};
+var PS = PS || {};
+PS.ProcessManagement = PS.ProcessManagement || {};
 
-Core.Agent.Admin.ProcessManagement.TransitionActionParameters = (function (TargetNS) {
+PS.ProcessManagement.TransitionActionParameters = (function (TargetNS) {
     function ClearParameters() {
         $('#ConfigParams input[name^="ConfigKey"]').each( function ( i, field ) {
             let $field = $(field);
@@ -39,21 +37,43 @@ Core.Agent.Admin.ProcessManagement.TransitionActionParameters = (function (Targe
             function ( Response ) {
                 var ParameterList = $('<ul></ul>');
 
-                Response.Params.each( function ( ParamIndex, Param ) {
-                    if ( ParamIndex != 0 ) {
-                        $('#ConfigAdd').trigger('click');
-                    }
-
-                    $('#ConfigKey[' + (ParamIndex + 1) + ']').val( Param.Key );
-                    $('#ConfigKey[' + (ParamIndex + 1) + ']').attr( 'placeholder', Param.Value );
+                $.each( Response.Params, function ( ParamIndex, Param ) {
 
                     ParameterList.append(
                         $('<li></li>').text( Param.Key + ' - ' + Param.Value )
                     );
+
+                    if ( Response.NoOptionals && Param.Optional ) {
+                        return;
+                    }
+
+                    var ConfigParamHTML;
+
+                    if ( ParamIndex != 0 ) {
+                        ConfigParamHTML = $('#ConfigParamContainer').html().replace(/_INDEX_/g, parseInt(ParamIndex) + 1);
+                    }
+                    else {
+                        ConfigParamHTML = $('#ConfigAdd').closest('.WidgetSimple').find('.Content fieldset').last();
+                    }
+
+                    let $ParamElem = $(ConfigParamHTML);
+            
+                    $ParamElem.find('input[name^="ConfigKey"]').val( Param.Key );
+                    $ParamElem.find('input[name^="ConfigValue"]').attr( 'placeholder', Param.Value );
+
+                    console.debug( $ParamElem.find('input[name^="ConfigKey"]'));
+
+                    if ( ParamIndex != 0 ) {
+                        let LastField = $('#ConfigAdd').closest('.WidgetSimple').find('.Content fieldset').last();
+                        $ParamElem.insertAfter(LastField);
+                    }
                 });
 
                 $('#ConfigParams').append(
-                    $('<div></div>', { id: 'ParameterList' } ).append( ParameterList );
+                    $('<div></div>', { id: 'ParameterList' } )
+                        .append( $('<br>' ) )
+                        .append( $('<h2></h2>').text('All Parameters') )
+                        .append( ParameterList )
                 );
             }
         );
@@ -77,9 +97,10 @@ Core.Agent.Admin.ProcessManagement.TransitionActionParameters = (function (Targe
             // request list of parameters
             SetParameters( Module );
         });
-    });
+    };
     
     Core.Init.RegisterNamespace(TargetNS, 'APP_MODULE');
 
     return TargetNS;
-}(Core.Agent.Admin.ProcessManagement.TransitionActionParameters || {})); 
+}(PS.ProcessManagement.TransitionActionParameters || {})); 
+
