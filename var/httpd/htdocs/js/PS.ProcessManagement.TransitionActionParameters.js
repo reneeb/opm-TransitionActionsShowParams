@@ -61,8 +61,6 @@ PS.ProcessManagement.TransitionActionParameters = (function (TargetNS) {
                     $ParamElem.find('input[name^="ConfigKey"]').val( Param.Key );
                     $ParamElem.find('input[name^="ConfigValue"]').attr( 'placeholder', Param.Value );
 
-                    console.debug( $ParamElem.find('input[name^="ConfigKey"]'));
-
                     if ( ParamIndex != 0 ) {
                         let LastField = $('#ConfigAdd').closest('.WidgetSimple').find('.Content fieldset').last();
                         $ParamElem.insertAfter(LastField);
