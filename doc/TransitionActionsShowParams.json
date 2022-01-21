@@ -1,0 +1,19 @@
+{
+    "name": "TransitionActionsShowParams",
+    "version": "6.0.1",
+    "framework": [
+        "6.2.x"
+    ],
+    "vendor": {
+        "name":  "Perl-Services.de",
+        "url": "https://www.perl-services.de"
+    },
+    "license": "GNU AFFERO GENERAL PUBLIC LICENSE Version 3, November 2007",
+    "description" : {
+        "en": "Show action module parameters in transition actions",
+        "de": "Zeige Aktionsmodul-Parameter in Übergangsaktionen"
+    },
+    "exclude_files" : [
+        "doc/TransitionActionsShowParams.json"
+    ]
+}

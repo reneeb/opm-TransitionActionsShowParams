@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<otrs_config version="2.0" init="Config">
+    <Setting Name="Frontend::Module###AdminTransitionActionsShowParams" Required="0" Valid="1">
+        <Description Translatable="1">Frontend module registration for ical infos module.</Description>
+        <Navigation>Frontend::Agent::ModuleRegistration</Navigation>
+        <Value>
+            <Item ValueType="FrontendRegistration">
+                <Hash>
+                    <Item Key="GroupRo">
+                        <Array>
+                        </Array>
+                    </Item>
+                    <Item Key="Group">
+                        <Array>
+                        </Array>
+                    </Item>
+                    <Item Key="Description" Translatable="1">Show action module parameters.</Item>
+                    <Item Key="NavBarName">Admin</Item>
+                    <Item Key="Title" Translatable="1">Show action module parameters</Item>
+                </Hash>
+            </Item>
+        </Value>
+    </Setting>
+    <Setting Name="Frontend::Navigation###AdminTransitionActionsShowParams###002-Core" Required="0" Valid="0">
+        <Description Translatable="1">Main menu item registration.</Description>
+        <Navigation>Frontend::Agent::ModuleRegistration::MainMenu</Navigation>
+        <Value>
+            <Array>
+                <DefaultItem ValueType="FrontendNavigation">
+                    <Hash>
+                    </Hash>
+                </DefaultItem>
+            </Array>
+        </Value>
+    </Setting>
+    <Setting Name="Loader::Module::AdminProcessManagementTransitionAction###002-ProcessManagement" Required="0" Valid="1">
+        <Description Translatable="1">Loader module registration for the agent interface.</Description>
+        <Navigation>Frontend::Admin::ModuleRegistration::Loader</Navigation>
+        <Value>
+            <Hash>
+                <Item Key="JavaScript">
+                    <Array>
+                        <Item>Core.Agent.Admin.ProcessManagementTransitionActionParameters.js</Item>
+                    </Array>
+                </Item>
+            </Hash>
+        </Value>
+    </Setting>
+    <Setting Name="TransitionActionParams::SetOptionalParameters" Required="0" Valid="1">
+        <Description Translatable="1">
+            Show optional parameters in parameter list, too. If disabled, the optional parameters are only shown
+            in an extra table
+        </Description>
+        <Navigation>Frontend::Admin::View::AdminProcessManagement</Navigation>
+        <Value>
+            <Item ValueType="Checkbox">1</Item>
+        </Value>
+    </Setting>
+</otrs_config>
